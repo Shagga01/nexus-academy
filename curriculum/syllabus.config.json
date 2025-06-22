@@ -1,26 +1,20 @@
 {
   "curriculum": {
-    "framework": [
-      "Nigerian",
-      "British",
-      "IPC",
-      "IB",
-      "CAIE",
-      "Singaporean"
+    "framework": ["Nigerian", "British", "IPC", "IB", "CAIE", "Singaporean"],
+    "default_language": "English",
+    "languages_supported": [
+      "English", "French", "Arabic", "Mandarin", "Latin",
+      "Spanish", "Hindi", "Afrikaans", "Greek", "Yoruba", "Hausa"
     ],
     "levels": {
       "Year 1": {
         "subjects": {
-          "English Language": {
+          "Language Arts": {
             "curriculum_source": ["British", "Nigerian"],
             "term_weeks": 12,
             "topics": [
-              "Phonics and Sounds",
-              "Letter Formation",
-              "Simple Sentences",
-              "Reading Fluency",
-              "Story Retelling",
-              "Basic Grammar"
+              "Phonics & Sounds", "Letter Formation", "Basic Grammar",
+              "Reading Fluency", "Sentence Formation"
             ],
             "vr_integration": true,
             "ai_adaptive": true,
@@ -30,12 +24,8 @@
             "curriculum_source": ["Singaporean", "Nigerian"],
             "term_weeks": 12,
             "topics": [
-              "Number Bonds",
-              "Addition & Subtraction",
-              "Shapes and Patterns",
-              "Measurements",
-              "Time",
-              "Money"
+              "Number Bonds", "Shapes", "Addition", "Subtraction",
+              "Time", "Money"
             ],
             "vr_integration": true,
             "ai_adaptive": true,
@@ -45,10 +35,118 @@
             "curriculum_source": ["IB", "CAIE", "Nigerian"],
             "term_weeks": 12,
             "topics": [
-              "Living and Non-Living Things",
-              "The Five Senses",
-              "Plants and Animals",
-              "Weather and Seasons"
+              "Living & Non-Living", "Five Senses", "Plants", "Weather"
+            ],
+            "vr_integration": true,
+            "ai_adaptive": true,
+            "ITS_enabled": true
+          },
+          "History": {
+            "curriculum_source": ["British", "Nigerian"],
+            "term_weeks": 12,
+            "topics": [
+              "Family Tree", "Community Heroes", "My Country's Flag"
+            ],
+            "vr_integration": false,
+            "ai_adaptive": true,
+            "ITS_enabled": false
+          },
+          "Geography": {
+            "curriculum_source": ["British", "IPC"],
+            "term_weeks": 12,
+            "topics": [
+              "My Environment", "Weather & Climate", "Simple Maps"
+            ],
+            "vr_integration": true,
+            "ai_adaptive": true,
+            "ITS_enabled": false
+          },
+          "ICT": {
+            "curriculum_source": ["Singaporean", "IB"],
+            "term_weeks": 12,
+            "topics": [
+              "Parts of a Computer", "Typing Practice", "Digital Manners"
+            ],
+            "vr_integration": true,
+            "ai_adaptive": true,
+            "ITS_enabled": true
+          },
+          "Art and Design": {
+            "curriculum_source": ["British", "Nigerian"],
+            "term_weeks": 12,
+            "topics": [
+              "Primary Colors", "Basic Shapes Drawing", "My Family Portrait"
+            ],
+            "vr_integration": false,
+            "ai_adaptive": false,
+            "ITS_enabled": false
+          },
+          "Physical Education": {
+            "curriculum_source": ["Nigerian"],
+            "term_weeks": 12,
+            "topics": [
+              "Stretching", "Body Movements", "Simple Team Games"
+            ],
+            "vr_integration": false,
+            "ai_adaptive": false,
+            "ITS_enabled": false
+          },
+          "Music": {
+            "curriculum_source": ["British"],
+            "term_weeks": 12,
+            "topics": [
+              "Clap & Rhythm", "School Songs", "Simple Instruments"
+            ],
+            "vr_integration": false,
+            "ai_adaptive": true,
+            "ITS_enabled": false
+          },
+          "Society and International Awareness": {
+            "curriculum_source": ["IB", "Nigerian"],
+            "term_weeks": 12,
+            "topics": [
+              "Respect", "Culture and Customs", "My Country & Others"
+            ],
+            "vr_integration": true,
+            "ai_adaptive": true,
+            "ITS_enabled": true
+          },
+          "Verbal Reasoning": {
+            "curriculum_source": ["CAIE", "Nigerian"],
+            "term_weeks": 12,
+            "topics": [
+              "Synonyms", "Antonyms", "Odd Words Out",
+              "Word Pairs", "Word Meanings"
+            ],
+            "vr_integration": false,
+            "ai_adaptive": true,
+            "ITS_enabled": true
+          },
+          "Non-Verbal Reasoning": {
+            "curriculum_source": ["CAIE", "Singaporean"],
+            "term_weeks": 12,
+            "topics": [
+              "Figure Patterns", "Shape Classification", "Odd Shape Out"
+            ],
+            "vr_integration": false,
+            "ai_adaptive": true,
+            "ITS_enabled": true
+          },
+          "Quantitative Reasoning": {
+            "curriculum_source": ["CAIE", "Singaporean"],
+            "term_weeks": 12,
+            "topics": [
+              "Number Series", "Arithmetic Patterns", "Numerical Logic"
+            ],
+            "vr_integration": false,
+            "ai_adaptive": true,
+            "ITS_enabled": true
+          },
+          "Spatial Reasoning": {
+            "curriculum_source": ["Singaporean", "British"],
+            "term_weeks": 12,
+            "topics": [
+              "Shape Rotations", "Symmetry", "Spatial Matching"
             ],
             "vr_integration": true,
             "ai_adaptive": true,
@@ -56,20 +154,6 @@
           }
         }
       }
-    },
-    "default_language": "English",
-    "languages_supported": [
-      "English",
-      "French",
-      "Arabic",
-      "Mandarin",
-      "Latin",
-      "Spanish",
-      "Hindi",
-      "Afrikaans",
-      "Greek",
-      "Yoruba",
-      "Hausa"
-    ]
+    }
   }
 }
