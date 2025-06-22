@@ -1,0 +1,75 @@
+{
+  "curriculum": {
+    "framework": [
+      "Nigerian",
+      "British",
+      "IPC",
+      "IB",
+      "CAIE",
+      "Singaporean"
+    ],
+    "levels": {
+      "Year 1": {
+        "subjects": {
+          "English Language": {
+            "curriculum_source": ["British", "Nigerian"],
+            "term_weeks": 12,
+            "topics": [
+              "Phonics and Sounds",
+              "Letter Formation",
+              "Simple Sentences",
+              "Reading Fluency",
+              "Story Retelling",
+              "Basic Grammar"
+            ],
+            "vr_integration": true,
+            "ai_adaptive": true,
+            "ITS_enabled": true
+          },
+          "Mathematics": {
+            "curriculum_source": ["Singaporean", "Nigerian"],
+            "term_weeks": 12,
+            "topics": [
+              "Number Bonds",
+              "Addition & Subtraction",
+              "Shapes and Patterns",
+              "Measurements",
+              "Time",
+              "Money"
+            ],
+            "vr_integration": true,
+            "ai_adaptive": true,
+            "ITS_enabled": true
+          },
+          "Science": {
+            "curriculum_source": ["IB", "CAIE", "Nigerian"],
+            "term_weeks": 12,
+            "topics": [
+              "Living and Non-Living Things",
+              "The Five Senses",
+              "Plants and Animals",
+              "Weather and Seasons"
+            ],
+            "vr_integration": true,
+            "ai_adaptive": true,
+            "ITS_enabled": true
+          }
+        }
+      }
+    },
+    "default_language": "English",
+    "languages_supported": [
+      "English",
+      "French",
+      "Arabic",
+      "Mandarin",
+      "Latin",
+      "Spanish",
+      "Hindi",
+      "Afrikaans",
+      "Greek",
+      "Yoruba",
+      "Hausa"
+    ]
+  }
+}
