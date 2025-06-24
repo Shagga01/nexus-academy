@@ -1,9 +1,9 @@
 import json
 import os
-import openai
+from openai import OpenAI
 
-# 🔐 Replace with your actual OpenAI API key
-openai.api_key = "OPENAI_API_KEY_ENV"
+# 🔐 Load OpenAI client using environment variable
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY_ENV"))
 
 # 📍 File Paths
 SYLLABUS_PATH = "curriculum/syllabus.config.json"
@@ -50,13 +50,13 @@ def generate_prompt(subject, topic, level, weeks, vr, adaptive, its):
     )
 
 def call_openai(prompt):
-    response = openai.ChatCompletion.create(
-        model="gpt-4",
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": prompt}],
         temperature=0.5,
         max_tokens=1500
     )
-    return response['choices'][0]['message']['content']
+    return response.choices[0].message.content
 
 def generate_lessons():
     ensure_output_dir()
