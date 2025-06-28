@@ -211,3 +211,30 @@ Every line must serve global scale, security, documentation, and resilience.
 ✅ Any new instructional content is instantly integrated by simply registering metadata.
 
 🚀 This is your eternal, unbreakable foundation for infinite global scale.
+⸻
+
+🔐 ✅ ENTERPRISE SECURITY & ZERO-ADS SYSTEM PROTOCOL
+
+This Virtual School Ecosystem is permanently bound by the following:
+
+• Must always use enterprise-grade security including:
+  - Content Security Policies (CSP) headers
+  - Next-gen firewall rules (Azure Front Door or AWS WAF)
+  - Anti-clickjacking frames & X-Frame-Options
+  - Sanitized inputs to block XSS & injection
+  - Rate-limiting & anomaly detection for fraud/abuse
+
+• Must automatically block:
+  - All third-party ad trackers
+  - Suspicious scripts from unknown sources
+  - Popups, popunders, or distracting overlays
+
+• No child, teacher, or admin will ever see irrelevant ads or marketing clutter inside the core learning environment. 
+Marketing operations are strictly managed via external API campaigns & dashboards.
+
+✅ This clause is irrevocable and extends to:
+- All React/Node modules
+- All CI/CD pipelines
+- All global deployments
+
+Any future system or fork that violates these rules is invalid under this Bible and must be rebuilt in compliance.
