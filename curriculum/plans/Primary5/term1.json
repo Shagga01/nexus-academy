@@ -1,0 +1,10 @@
+{
+  "subjects": [
+    { "name": "Mathematics", "topics": ["Fractions", "Decimals", "Percentage"] },
+    { "name": "Agricultural Science", "topics": ["Soil types", "Crop rotation"] },
+    { "name": "Cultural Studies", "topics": ["Nigerian festivals", "World heritage sites"] },
+    { "name": "Economics", "topics": ["Needs & wants", "Simple markets"] },
+    { "name": "ICT", "topics": ["Scratch coding basics", "Digital safety"] },
+    { "name": "CAT Quantitative", "topics": ["Number Series", "Number Analogy"] }
+  ]
+}
