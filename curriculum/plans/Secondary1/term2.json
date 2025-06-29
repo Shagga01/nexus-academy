@@ -3,44 +3,40 @@
     {
       "name": "Mathematics",
       "topics": [
-        "Addition",
-        "Subtraction",
-        "Fractions"
+        "Addition"
       ]
     },
     {
       "name": "English",
       "topics": [
-        "Reading",
-        "Comprehension",
-        "Creative writing"
+        "Reading"
       ]
     },
     {
       "name": "Science",
       "topics": [
         "Living things",
-        "Energy"
+        "Energy",
+        "Experiments"
       ]
     },
     {
       "name": "Integrated Science",
       "topics": [
-        "Earth science",
-        "Practical labs"
+        "Earth science"
       ]
     },
     {
       "name": "Agricultural Science",
       "topics": [
-        "Soil",
-        "Plants"
+        "Soil"
       ]
     },
     {
       "name": "Economics",
       "topics": [
-        "Needs & Wants"
+        "Needs & Wants",
+        "Simple budgeting"
       ]
     },
     {
@@ -53,34 +49,33 @@
     {
       "name": "ICT",
       "topics": [
-        "Typing",
-        "Scratch basics"
+        "Typing"
       ]
     },
     {
       "name": "Art & Music",
       "topics": [
-        "Drawing",
-        "Song interpretation"
+        "Drawing"
       ]
     },
     {
       "name": "Physical Education",
       "topics": [
-        "Team sports",
-        "Fitness"
+        "Team sports"
       ]
     },
     {
       "name": "Practical Vocational",
       "topics": [
-        "Technical drawing"
+        "Technical drawing",
+        "Crafts"
       ]
     },
     {
       "name": "CAT Verbal",
       "topics": [
-        "Classification"
+        "Classification",
+        "Analogy"
       ]
     },
     {

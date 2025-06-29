@@ -13,14 +13,14 @@
       "topics": [
         "Reading",
         "Comprehension",
-        "Creative writing"
+        "Creative writing",
+        "Grammar"
       ]
     },
     {
       "name": "Science",
       "topics": [
-        "Living things",
-        "Energy"
+        "Living things"
       ]
     },
     {
@@ -34,41 +34,39 @@
       "name": "Agricultural Science",
       "topics": [
         "Soil",
-        "Plants"
+        "Plants",
+        "Farm records"
       ]
     },
     {
       "name": "Economics",
       "topics": [
-        "Needs & Wants"
+        "Needs & Wants",
+        "Simple budgeting"
       ]
     },
     {
       "name": "Cultural Studies",
       "topics": [
-        "Festivals",
-        "World civilizations"
+        "Festivals"
       ]
     },
     {
       "name": "ICT",
       "topics": [
-        "Typing",
-        "Scratch basics"
+        "Typing"
       ]
     },
     {
       "name": "Art & Music",
       "topics": [
-        "Drawing",
-        "Song interpretation"
+        "Drawing"
       ]
     },
     {
       "name": "Physical Education",
       "topics": [
-        "Team sports",
-        "Fitness"
+        "Team sports"
       ]
     },
     {

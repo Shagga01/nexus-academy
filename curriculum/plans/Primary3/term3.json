@@ -20,7 +20,8 @@
       "name": "Science",
       "topics": [
         "Living things",
-        "Energy"
+        "Energy",
+        "Experiments"
       ]
     },
     {
@@ -46,8 +47,7 @@
     {
       "name": "Cultural Studies",
       "topics": [
-        "Festivals",
-        "World civilizations"
+        "Festivals"
       ]
     },
     {
@@ -60,15 +60,13 @@
     {
       "name": "Art & Music",
       "topics": [
-        "Drawing",
-        "Song interpretation"
+        "Drawing"
       ]
     },
     {
       "name": "Physical Education",
       "topics": [
-        "Team sports",
-        "Fitness"
+        "Team sports"
       ]
     },
     {
@@ -80,7 +78,8 @@
     {
       "name": "CAT Verbal",
       "topics": [
-        "Classification"
+        "Classification",
+        "Analogy"
       ]
     },
     {
@@ -100,8 +99,7 @@
     {
       "name": "CAT Spatial",
       "topics": [
-        "Figure Analysis",
-        "Recognition"
+        "Figure Analysis"
       ]
     }
   ]

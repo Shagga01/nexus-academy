@@ -34,13 +34,15 @@
       "name": "Agricultural Science",
       "topics": [
         "Soil",
-        "Plants"
+        "Plants",
+        "Farm records"
       ]
     },
     {
       "name": "Economics",
       "topics": [
-        "Needs & Wants"
+        "Needs & Wants",
+        "Simple budgeting"
       ]
     },
     {
@@ -53,22 +55,19 @@
     {
       "name": "ICT",
       "topics": [
-        "Typing",
-        "Scratch basics"
+        "Typing"
       ]
     },
     {
       "name": "Art & Music",
       "topics": [
-        "Drawing",
-        "Song interpretation"
+        "Drawing"
       ]
     },
     {
       "name": "Physical Education",
       "topics": [
-        "Team sports",
-        "Fitness"
+        "Team sports"
       ]
     },
     {
@@ -80,14 +79,14 @@
     {
       "name": "CAT Verbal",
       "topics": [
-        "Classification"
+        "Classification",
+        "Analogy"
       ]
     },
     {
       "name": "CAT Quantitative",
       "topics": [
-        "Number Series",
-        "Number Analogy"
+        "Number Series"
       ]
     },
     {
@@ -100,8 +99,7 @@
     {
       "name": "CAT Spatial",
       "topics": [
-        "Figure Analysis",
-        "Recognition"
+        "Figure Analysis"
       ]
     }
   ]

@@ -19,8 +19,7 @@
     {
       "name": "Science",
       "topics": [
-        "Living things",
-        "Energy"
+        "Living things"
       ]
     },
     {
@@ -40,7 +39,8 @@
     {
       "name": "Economics",
       "topics": [
-        "Needs & Wants"
+        "Needs & Wants",
+        "Simple budgeting"
       ]
     },
     {
@@ -67,41 +67,39 @@
     {
       "name": "Physical Education",
       "topics": [
-        "Team sports",
-        "Fitness"
+        "Team sports"
       ]
     },
     {
       "name": "Practical Vocational",
       "topics": [
-        "Technical drawing"
+        "Technical drawing",
+        "Crafts"
       ]
     },
     {
       "name": "CAT Verbal",
       "topics": [
-        "Classification"
+        "Classification",
+        "Analogy"
       ]
     },
     {
       "name": "CAT Quantitative",
       "topics": [
-        "Number Series",
-        "Number Analogy"
+        "Number Series"
       ]
     },
     {
       "name": "CAT Non-Verbal",
       "topics": [
-        "Figure Matrix",
-        "Figure Classification"
+        "Figure Matrix"
       ]
     },
     {
       "name": "CAT Spatial",
       "topics": [
-        "Figure Analysis",
-        "Recognition"
+        "Figure Analysis"
       ]
     }
   ]

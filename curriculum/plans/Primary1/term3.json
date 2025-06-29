@@ -13,28 +13,28 @@
       "topics": [
         "Reading",
         "Comprehension",
-        "Creative writing"
+        "Creative writing",
+        "Grammar"
       ]
     },
     {
       "name": "Science",
       "topics": [
         "Living things",
-        "Energy"
+        "Energy",
+        "Experiments"
       ]
     },
     {
       "name": "Integrated Science",
       "topics": [
-        "Earth science",
-        "Practical labs"
+        "Earth science"
       ]
     },
     {
       "name": "Agricultural Science",
       "topics": [
-        "Soil",
-        "Plants"
+        "Soil"
       ]
     },
     {
@@ -53,15 +53,13 @@
     {
       "name": "ICT",
       "topics": [
-        "Typing",
-        "Scratch basics"
+        "Typing"
       ]
     },
     {
       "name": "Art & Music",
       "topics": [
-        "Drawing",
-        "Song interpretation"
+        "Drawing"
       ]
     },
     {
@@ -74,20 +72,21 @@
     {
       "name": "Practical Vocational",
       "topics": [
-        "Technical drawing"
+        "Technical drawing",
+        "Crafts"
       ]
     },
     {
       "name": "CAT Verbal",
       "topics": [
-        "Classification"
+        "Classification",
+        "Analogy"
       ]
     },
     {
       "name": "CAT Quantitative",
       "topics": [
-        "Number Series",
-        "Number Analogy"
+        "Number Series"
       ]
     },
     {
@@ -100,8 +99,7 @@
     {
       "name": "CAT Spatial",
       "topics": [
-        "Figure Analysis",
-        "Recognition"
+        "Figure Analysis"
       ]
     }
   ]

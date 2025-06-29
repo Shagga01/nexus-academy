@@ -11,23 +11,21 @@
     {
       "name": "English",
       "topics": [
-        "Reading",
-        "Comprehension",
-        "Creative writing"
+        "Reading"
       ]
     },
     {
       "name": "Science",
       "topics": [
         "Living things",
-        "Energy"
+        "Energy",
+        "Experiments"
       ]
     },
     {
       "name": "Integrated Science",
       "topics": [
-        "Earth science",
-        "Practical labs"
+        "Earth science"
       ]
     },
     {
@@ -53,22 +51,19 @@
     {
       "name": "ICT",
       "topics": [
-        "Typing",
-        "Scratch basics"
+        "Typing"
       ]
     },
     {
       "name": "Art & Music",
       "topics": [
-        "Drawing",
-        "Song interpretation"
+        "Drawing"
       ]
     },
     {
       "name": "Physical Education",
       "topics": [
-        "Team sports",
-        "Fitness"
+        "Team sports"
       ]
     },
     {
@@ -86,15 +81,13 @@
     {
       "name": "CAT Quantitative",
       "topics": [
-        "Number Series",
-        "Number Analogy"
+        "Number Series"
       ]
     },
     {
       "name": "CAT Non-Verbal",
       "topics": [
-        "Figure Matrix",
-        "Figure Classification"
+        "Figure Matrix"
       ]
     },
     {

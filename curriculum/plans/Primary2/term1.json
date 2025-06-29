@@ -5,7 +5,8 @@
       "topics": [
         "Addition",
         "Subtraction",
-        "Fractions"
+        "Fractions",
+        "Decimals"
       ]
     },
     {
@@ -19,8 +20,7 @@
     {
       "name": "Science",
       "topics": [
-        "Living things",
-        "Energy"
+        "Living things"
       ]
     },
     {
@@ -34,20 +34,21 @@
       "name": "Agricultural Science",
       "topics": [
         "Soil",
-        "Plants"
+        "Plants",
+        "Farm records"
       ]
     },
     {
       "name": "Economics",
       "topics": [
-        "Needs & Wants"
+        "Needs & Wants",
+        "Simple budgeting"
       ]
     },
     {
       "name": "Cultural Studies",
       "topics": [
-        "Festivals",
-        "World civilizations"
+        "Festivals"
       ]
     },
     {
@@ -80,21 +81,20 @@
     {
       "name": "CAT Verbal",
       "topics": [
-        "Classification"
+        "Classification",
+        "Analogy"
       ]
     },
     {
       "name": "CAT Quantitative",
       "topics": [
-        "Number Series",
-        "Number Analogy"
+        "Number Series"
       ]
     },
     {
       "name": "CAT Non-Verbal",
       "topics": [
-        "Figure Matrix",
-        "Figure Classification"
+        "Figure Matrix"
       ]
     },
     {

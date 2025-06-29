@@ -11,9 +11,7 @@
     {
       "name": "English",
       "topics": [
-        "Reading",
-        "Comprehension",
-        "Creative writing"
+        "Reading"
       ]
     },
     {
@@ -40,21 +38,20 @@
     {
       "name": "Economics",
       "topics": [
-        "Needs & Wants"
+        "Needs & Wants",
+        "Simple budgeting"
       ]
     },
     {
       "name": "Cultural Studies",
       "topics": [
-        "Festivals",
-        "World civilizations"
+        "Festivals"
       ]
     },
     {
       "name": "ICT",
       "topics": [
-        "Typing",
-        "Scratch basics"
+        "Typing"
       ]
     },
     {
@@ -67,8 +64,7 @@
     {
       "name": "Physical Education",
       "topics": [
-        "Team sports",
-        "Fitness"
+        "Team sports"
       ]
     },
     {
@@ -86,22 +82,19 @@
     {
       "name": "CAT Quantitative",
       "topics": [
-        "Number Series",
-        "Number Analogy"
+        "Number Series"
       ]
     },
     {
       "name": "CAT Non-Verbal",
       "topics": [
-        "Figure Matrix",
-        "Figure Classification"
+        "Figure Matrix"
       ]
     },
     {
       "name": "CAT Spatial",
       "topics": [
-        "Figure Analysis",
-        "Recognition"
+        "Figure Analysis"
       ]
     }
   ]

@@ -3,9 +3,7 @@
     {
       "name": "Mathematics",
       "topics": [
-        "Addition",
-        "Subtraction",
-        "Fractions"
+        "Addition"
       ]
     },
     {
@@ -13,21 +11,22 @@
       "topics": [
         "Reading",
         "Comprehension",
-        "Creative writing"
+        "Creative writing",
+        "Grammar"
       ]
     },
     {
       "name": "Science",
       "topics": [
         "Living things",
-        "Energy"
+        "Energy",
+        "Experiments"
       ]
     },
     {
       "name": "Integrated Science",
       "topics": [
-        "Earth science",
-        "Practical labs"
+        "Earth science"
       ]
     },
     {
@@ -40,7 +39,8 @@
     {
       "name": "Economics",
       "topics": [
-        "Needs & Wants"
+        "Needs & Wants",
+        "Simple budgeting"
       ]
     },
     {
@@ -53,8 +53,7 @@
     {
       "name": "ICT",
       "topics": [
-        "Typing",
-        "Scratch basics"
+        "Typing"
       ]
     },
     {

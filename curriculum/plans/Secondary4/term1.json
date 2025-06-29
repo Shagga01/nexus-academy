@@ -11,16 +11,15 @@
     {
       "name": "English",
       "topics": [
-        "Reading",
-        "Comprehension",
-        "Creative writing"
+        "Reading"
       ]
     },
     {
       "name": "Science",
       "topics": [
         "Living things",
-        "Energy"
+        "Energy",
+        "Experiments"
       ]
     },
     {
@@ -33,14 +32,14 @@
     {
       "name": "Agricultural Science",
       "topics": [
-        "Soil",
-        "Plants"
+        "Soil"
       ]
     },
     {
       "name": "Economics",
       "topics": [
-        "Needs & Wants"
+        "Needs & Wants",
+        "Simple budgeting"
       ]
     },
     {
@@ -74,7 +73,8 @@
     {
       "name": "Practical Vocational",
       "topics": [
-        "Technical drawing"
+        "Technical drawing",
+        "Crafts"
       ]
     },
     {
@@ -100,8 +100,7 @@
     {
       "name": "CAT Spatial",
       "topics": [
-        "Figure Analysis",
-        "Recognition"
+        "Figure Analysis"
       ]
     }
   ]

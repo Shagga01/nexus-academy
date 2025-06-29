@@ -4,8 +4,7 @@
       "name": "Mathematics",
       "topics": [
         "Addition",
-        "Subtraction",
-        "Fractions"
+        "Subtraction"
       ]
     },
     {
@@ -46,8 +45,7 @@
     {
       "name": "Cultural Studies",
       "topics": [
-        "Festivals",
-        "World civilizations"
+        "Festivals"
       ]
     },
     {
@@ -60,8 +58,7 @@
     {
       "name": "Art & Music",
       "topics": [
-        "Drawing",
-        "Song interpretation"
+        "Drawing"
       ]
     },
     {
@@ -93,15 +90,13 @@
     {
       "name": "CAT Non-Verbal",
       "topics": [
-        "Figure Matrix",
-        "Figure Classification"
+        "Figure Matrix"
       ]
     },
     {
       "name": "CAT Spatial",
       "topics": [
-        "Figure Analysis",
-        "Recognition"
+        "Figure Analysis"
       ]
     }
   ]

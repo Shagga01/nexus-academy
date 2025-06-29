@@ -5,56 +5,52 @@
       "topics": [
         "Addition",
         "Subtraction",
-        "Fractions"
+        "Fractions",
+        "Decimals"
       ]
     },
     {
       "name": "English",
       "topics": [
         "Reading",
-        "Comprehension",
-        "Creative writing"
+        "Comprehension"
       ]
     },
     {
       "name": "Science",
       "topics": [
-        "Living things",
-        "Energy"
+        "Living things"
       ]
     },
     {
       "name": "Integrated Science",
       "topics": [
-        "Earth science",
-        "Practical labs"
+        "Earth science"
       ]
     },
     {
       "name": "Agricultural Science",
       "topics": [
-        "Soil",
-        "Plants"
+        "Soil"
       ]
     },
     {
       "name": "Economics",
       "topics": [
-        "Needs & Wants"
+        "Needs & Wants",
+        "Simple budgeting"
       ]
     },
     {
       "name": "Cultural Studies",
       "topics": [
-        "Festivals",
-        "World civilizations"
+        "Festivals"
       ]
     },
     {
       "name": "ICT",
       "topics": [
-        "Typing",
-        "Scratch basics"
+        "Typing"
       ]
     },
     {
@@ -67,8 +63,7 @@
     {
       "name": "Physical Education",
       "topics": [
-        "Team sports",
-        "Fitness"
+        "Team sports"
       ]
     },
     {
@@ -93,8 +88,7 @@
     {
       "name": "CAT Non-Verbal",
       "topics": [
-        "Figure Matrix",
-        "Figure Classification"
+        "Figure Matrix"
       ]
     },
     {

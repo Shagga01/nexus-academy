@@ -5,15 +5,14 @@
       "topics": [
         "Addition",
         "Subtraction",
-        "Fractions"
+        "Fractions",
+        "Decimals"
       ]
     },
     {
       "name": "English",
       "topics": [
-        "Reading",
-        "Comprehension",
-        "Creative writing"
+        "Reading"
       ]
     },
     {
@@ -26,8 +25,7 @@
     {
       "name": "Integrated Science",
       "topics": [
-        "Earth science",
-        "Practical labs"
+        "Earth science"
       ]
     },
     {
@@ -40,14 +38,14 @@
     {
       "name": "Economics",
       "topics": [
-        "Needs & Wants"
+        "Needs & Wants",
+        "Simple budgeting"
       ]
     },
     {
       "name": "Cultural Studies",
       "topics": [
-        "Festivals",
-        "World civilizations"
+        "Festivals"
       ]
     },
     {
@@ -60,8 +58,7 @@
     {
       "name": "Art & Music",
       "topics": [
-        "Drawing",
-        "Song interpretation"
+        "Drawing"
       ]
     },
     {
@@ -74,7 +71,8 @@
     {
       "name": "Practical Vocational",
       "topics": [
-        "Technical drawing"
+        "Technical drawing",
+        "Crafts"
       ]
     },
     {
@@ -86,8 +84,7 @@
     {
       "name": "CAT Quantitative",
       "topics": [
-        "Number Series",
-        "Number Analogy"
+        "Number Series"
       ]
     },
     {

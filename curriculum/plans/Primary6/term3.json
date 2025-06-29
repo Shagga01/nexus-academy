@@ -4,8 +4,7 @@
       "name": "Mathematics",
       "topics": [
         "Addition",
-        "Subtraction",
-        "Fractions"
+        "Subtraction"
       ]
     },
     {
@@ -20,21 +19,22 @@
       "name": "Science",
       "topics": [
         "Living things",
-        "Energy"
+        "Energy",
+        "Experiments"
       ]
     },
     {
       "name": "Integrated Science",
       "topics": [
-        "Earth science",
-        "Practical labs"
+        "Earth science"
       ]
     },
     {
       "name": "Agricultural Science",
       "topics": [
         "Soil",
-        "Plants"
+        "Plants",
+        "Farm records"
       ]
     },
     {
@@ -60,8 +60,7 @@
     {
       "name": "Art & Music",
       "topics": [
-        "Drawing",
-        "Song interpretation"
+        "Drawing"
       ]
     },
     {
@@ -93,8 +92,7 @@
     {
       "name": "CAT Non-Verbal",
       "topics": [
-        "Figure Matrix",
-        "Figure Classification"
+        "Figure Matrix"
       ]
     },
     {

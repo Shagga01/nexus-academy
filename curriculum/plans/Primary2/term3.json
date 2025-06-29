@@ -3,24 +3,20 @@
     {
       "name": "Mathematics",
       "topics": [
-        "Addition",
-        "Subtraction",
-        "Fractions"
+        "Addition"
       ]
     },
     {
       "name": "English",
       "topics": [
         "Reading",
-        "Comprehension",
-        "Creative writing"
+        "Comprehension"
       ]
     },
     {
       "name": "Science",
       "topics": [
-        "Living things",
-        "Energy"
+        "Living things"
       ]
     },
     {
@@ -33,8 +29,7 @@
     {
       "name": "Agricultural Science",
       "topics": [
-        "Soil",
-        "Plants"
+        "Soil"
       ]
     },
     {
@@ -46,8 +41,7 @@
     {
       "name": "Cultural Studies",
       "topics": [
-        "Festivals",
-        "World civilizations"
+        "Festivals"
       ]
     },
     {
@@ -74,13 +68,15 @@
     {
       "name": "Practical Vocational",
       "topics": [
-        "Technical drawing"
+        "Technical drawing",
+        "Crafts"
       ]
     },
     {
       "name": "CAT Verbal",
       "topics": [
-        "Classification"
+        "Classification",
+        "Analogy"
       ]
     },
     {
@@ -93,8 +89,7 @@
     {
       "name": "CAT Non-Verbal",
       "topics": [
-        "Figure Matrix",
-        "Figure Classification"
+        "Figure Matrix"
       ]
     },
     {

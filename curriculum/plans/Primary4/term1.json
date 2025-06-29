@@ -13,14 +13,14 @@
       "topics": [
         "Reading",
         "Comprehension",
-        "Creative writing"
+        "Creative writing",
+        "Grammar"
       ]
     },
     {
       "name": "Science",
       "topics": [
-        "Living things",
-        "Energy"
+        "Living things"
       ]
     },
     {
@@ -34,7 +34,8 @@
       "name": "Agricultural Science",
       "topics": [
         "Soil",
-        "Plants"
+        "Plants",
+        "Farm records"
       ]
     },
     {
@@ -46,8 +47,7 @@
     {
       "name": "Cultural Studies",
       "topics": [
-        "Festivals",
-        "World civilizations"
+        "Festivals"
       ]
     },
     {
@@ -67,8 +67,7 @@
     {
       "name": "Physical Education",
       "topics": [
-        "Team sports",
-        "Fitness"
+        "Team sports"
       ]
     },
     {
@@ -86,8 +85,7 @@
     {
       "name": "CAT Quantitative",
       "topics": [
-        "Number Series",
-        "Number Analogy"
+        "Number Series"
       ]
     },
     {
@@ -100,8 +98,7 @@
     {
       "name": "CAT Spatial",
       "topics": [
-        "Figure Analysis",
-        "Recognition"
+        "Figure Analysis"
       ]
     }
   ]
