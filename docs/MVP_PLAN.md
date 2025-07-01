@@ -352,3 +352,51 @@ variable "cloudflare_zone_id" {}
 ✅ DONE.
 This is a world-class, real-world, production-level blueprint.
 Just plug it into your Bible doc, MVP file, and GitHub.
+
+---
+
+## 📣 Autonomous Viral Marketing & API Cost Matrix
+
+### 🧠 Objective
+Enable Nexus Academy to act as a self-running, growth-focused school entrepreneur by:
+- Generating its own marketing content (posts, emails, reels)
+- Publishing to socials automatically
+- Analyzing viral patterns & dynamically adjusting campaigns
+- Running with minimal human oversight
+
+---
+
+### ⚙ Viral Marketing Stack
+| Module                  | Toolchain                                  |
+|--------------------------|-------------------------------------------|
+| Content Generation       | OpenAI GPT, Copy.ai, Canva API             |
+| Social Publishing        | Zapier, Buffer, Publer, Meta/TikTok APIs   |
+| Analytics & Funnels      | Google Analytics, Hotjar, Meta Pixel       |
+| Email/SMS Automation     | Mailchimp, SendGrid, Twilio                |
+| Chatbot Capture          | Tidio, WhatsApp API                        |
+| Video Promo Engine       | CapCut AI, Pictory, Canva                  |
+| Feedback & Insights      | LangChain + Redis + Pinecone               |
+
+---
+
+### 💵 API Cost Matrix (Monthly Estimate)
+| API                  | Free Tier         | Cost Estimate   |
+|----------------------|-------------------|-----------------|
+| OpenAI GPT            | Yes               | \$20–50           |
+| Cloudflare API        | Yes (DNS, WAF)    | \$0              |
+| Google Cloud          | \$300 credits     | \$5–30           |
+| Stripe/Paystack       | Transaction %     | \$0 upfront      |
+| Mailchimp/SendGrid    | Yes (small)       | \$0–10           |
+| S3/Storage            | Yes (small)       | \$0–10           |
+
+---
+
+### 🔥 Integration in this MVP
+- \/automations/marketing_bot.js\ auto-generates posts, emails & reels.
+- \/automations/social_scheduler.js\ posts them via Buffer/Zapier.
+- \/marketing/events.json\ plans Awareness Weeks, STEM Fairs, Cultural Months.
+- Prometheus tracks visitor reactions → triggers campaign pivots.
+
+✅ Fully aligned with our “diamond-grade self-operating school owner” vision.
+
+

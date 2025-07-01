@@ -1,0 +1,34 @@
+# helm/values.yaml
+
+domain: "nexusacademy.com"
+region: "europe-west4"
+
+app:
+  replicas: 3
+  image:
+    repository: gcr.io/myproject/nexus-academy
+    tag: "latest"
+
+ingress:
+  enabled: true
+  hosts:
+    - host: "app.{{ .Values.domain }}"
+      paths: ["/"]
+  tls:
+    - hosts:
+        - "app.{{ .Values.domain }}"
+      secretName: tls-cert
+
+resources:
+  requests:
+    cpu: "100m"
+    memory: "256Mi"
+  limits:
+    cpu: "500m"
+    memory: "512Mi"
+
+env:
+  DATABASE_URL: "postgres://user:password@postgres:5432/nexus"
+  REDIS_URL: "redis://redis:6379"
+  JWT_SECRET: "supersecret"
+  

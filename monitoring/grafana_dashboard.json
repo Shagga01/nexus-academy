@@ -1,0 +1,74 @@
+{
+  "dashboard": {
+    "id": null,
+    "uid": "nexus-dashboard",
+    "title": "Nexus Academy Observability",
+    "tags": ["nexus", "academy", "monitoring"],
+    "timezone": "browser",
+    "schemaVersion": 30,
+    "version": 1,
+    "refresh": "10s",
+    "panels": [
+      {
+        "type": "graph",
+        "title": "CPU Usage",
+        "targets": [
+          {
+            "expr": "sum(rate(container_cpu_usage_seconds_total{container!=\"\",pod!=\"\"}[5m])) by (pod)",
+            "interval": "",
+            "legendFormat": "{{pod}}",
+            "refId": "A"
+          }
+        ]
+      },
+      {
+        "type": "graph",
+        "title": "Memory Usage",
+        "targets": [
+          {
+            "expr": "sum(container_memory_usage_bytes{container!=\"\",pod!=\"\"}) by (pod)",
+            "interval": "",
+            "legendFormat": "{{pod}}",
+            "refId": "B"
+          }
+        ]
+      },
+      {
+        "type": "graph",
+        "title": "HTTP Request Latency",
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket[5m])) by (le, route))",
+            "interval": "",
+            "legendFormat": "{{route}}",
+            "refId": "C"
+          }
+        ]
+      },
+      {
+        "type": "graph",
+        "title": "Error Rate",
+        "targets": [
+          {
+            "expr": "sum(rate(http_requests_total{status=~\"5..\"}[5m])) by (route)",
+            "interval": "",
+            "legendFormat": "{{route}}",
+            "refId": "D"
+          }
+        ]
+      },
+      {
+        "type": "graph",
+        "title": "PostgreSQL Connections",
+        "targets": [
+          {
+            "expr": "pg_stat_activity_count",
+            "interval": "",
+            "legendFormat": "active connections",
+            "refId": "E"
+          }
+        ]
+      }
+    ]
+  }
+}
