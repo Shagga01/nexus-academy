@@ -134,3 +134,23 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Terraform
+.terraform/
+*.tfstate
+.tfstate.
+terraform.tfvars
+crash.log
+*.backup
+
+# Node & Next
+node_modules/
+.next/
+dist/
+.env
+*.log
+
+# Editor & OS junk
+*.DS_Store
+*~
+
