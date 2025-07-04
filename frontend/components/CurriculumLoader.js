@@ -15,7 +15,7 @@ const CurriculumLoader = () => {
       for (let level of levels) {
         for (let term = 1; term <= 3; term++) {
           try {
-            const response = await fetch(/curriculum/plans/${level}/term${term}.json);
+            const response = await fetch(`/curriculum/plans/${level}/term${term}.json`);
             if (response.ok) {
               const json = await response.json();
               data.push({
