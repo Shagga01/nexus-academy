@@ -154,3 +154,9 @@ dist/
 *.DS_Store
 *~
 
+.terraform/
+*.tfstate
+.tfstate.
+terraform.tfvars
+*.exe
+
