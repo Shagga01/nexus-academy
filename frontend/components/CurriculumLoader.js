@@ -25,7 +25,7 @@ const CurriculumLoader = () => {
               });
             }
           } catch (err) {
-            console.error(Error loading ${level} Term ${term}:, err);
+            console.error(`Error loading ${level} Term ${term}:`, err);
           }
         }
       }
