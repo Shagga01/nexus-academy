@@ -90,3 +90,119 @@ CREATE TABLE audit_logs (
 
 -- ✅ Enforce GDPR & secure auditing
 -- Future optional: Mask family/medical in selects, log all CRUD.
+-- =====================================================
+-- 🚀 NEXUS ACADEMY VIRTUAL EDUCATION DATABASE SCHEMA
+-- Diamond-grade scalable Postgres schema
+-- Created: 2025-06
+-- =====================================================
+
+-- Drop tables if rerunning (for dev/test only!)
+DROP TABLE IF EXISTS ai_learning_paths CASCADE;
+DROP TABLE IF EXISTS progress_tracking CASCADE;
+DROP TABLE IF EXISTS assessments CASCADE;
+DROP TABLE IF EXISTS activities CASCADE;
+DROP TABLE IF EXISTS objectives CASCADE;
+DROP TABLE IF EXISTS lessons CASCADE;
+DROP TABLE IF EXISTS topics CASCADE;
+DROP TABLE IF EXISTS subjects CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
+
+-- =====================================================
+-- USERS TABLE
+-- =====================================================
+CREATE TABLE users (
+    user_id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    role VARCHAR(20) CHECK (role IN ('student', 'teacher', 'parent', 'admin')) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    hashed_password TEXT NOT NULL
+);
+
+-- =====================================================
+-- SUBJECTS → TOPICS → LESSONS
+-- =====================================================
+CREATE TABLE subjects (
+    subject_id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    description TEXT,
+    thumbnail_url TEXT
+);
+
+CREATE TABLE topics (
+    topic_id SERIAL PRIMARY KEY,
+    subject_id INT NOT NULL REFERENCES subjects(subject_id) ON DELETE CASCADE,
+    name VARCHAR(100) NOT NULL,
+    description TEXT,
+    order_index INT,
+    CONSTRAINT fk_subject FOREIGN KEY(subject_id) REFERENCES subjects(subject_id)
+);
+
+CREATE INDEX idx_topics_subject_id ON topics(subject_id);
+
+CREATE TABLE lessons (
+    lesson_id SERIAL PRIMARY KEY,
+    topic_id INT NOT NULL REFERENCES topics(topic_id) ON DELETE CASCADE,
+    name VARCHAR(100) NOT NULL,
+    lesson_content TEXT,
+    vr_experience_link TEXT,
+    ai_recommendation_tag VARCHAR(50),
+    CONSTRAINT fk_topic FOREIGN KEY(topic_id) REFERENCES topics(topic_id)
+);
+
+CREATE INDEX idx_lessons_topic_id ON lessons(topic_id);
+
+-- =====================================================
+-- OBJECTIVES, ACTIVITIES, ASSESSMENTS
+-- =====================================================
+CREATE TABLE objectives (
+    objective_id SERIAL PRIMARY KEY,
+    lesson_id INT NOT NULL REFERENCES lessons(lesson_id) ON DELETE CASCADE,
+    description TEXT
+);
+
+CREATE INDEX idx_objectives_lesson_id ON objectives(lesson_id);
+
+CREATE TABLE activities (
+    activity_id SERIAL PRIMARY KEY,
+    lesson_id INT NOT NULL REFERENCES lessons(lesson_id) ON DELETE CASCADE,
+    activity_type VARCHAR(50),
+    resource_link TEXT
+);
+
+CREATE INDEX idx_activities_lesson_id ON activities(lesson_id);
+
+CREATE TABLE assessments (
+    assessment_id SERIAL PRIMARY KEY,
+    lesson_id INT NOT NULL REFERENCES lessons(lesson_id) ON DELETE CASCADE,
+    type VARCHAR(20) CHECK (type IN ('formative', 'summative')),
+    data JSONB
+);
+
+CREATE INDEX idx_assessments_lesson_id ON assessments(lesson_id);
+
+-- =====================================================
+-- PROGRESS TRACKING & AI LEARNING PATHS
+-- =====================================================
+CREATE TABLE progress_tracking (
+    progress_id SERIAL PRIMARY KEY,
+    student_id INT NOT NULL REFERENCES users(user_id) ON DELETE CASCADE,
+    lesson_id INT NOT NULL REFERENCES lessons(lesson_id) ON DELETE CASCADE,
+    status VARCHAR(20) CHECK (status IN ('completed', 'in_progress')) NOT NULL,
+    score DECIMAL(5,2),
+    time_spent INT
+);
+
+CREATE INDEX idx_progress_student_id ON progress_tracking(student_id);
+CREATE INDEX idx_progress_lesson_id ON progress_tracking(lesson_id);
+
+CREATE TABLE ai_learning_paths (
+    path_id SERIAL PRIMARY KEY,
+    student_id INT NOT NULL REFERENCES users(user_id) ON DELETE CASCADE,
+    recommended_lessons JSONB
+);
+
+CREATE INDEX idx_ai_paths_student_id ON ai_learning_paths(student_id);
+
+-- =====================================================
+-- END OF SCHEMA
+-- =====================================================
