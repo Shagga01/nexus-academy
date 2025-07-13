@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import CurriculumLoader from '../frontend/components/CurriculumLoader';
+import CurriculumLoader from '../../components/curriculum-loader';
 
 const Dashboard = () => {
   return (

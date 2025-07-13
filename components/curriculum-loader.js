@@ -19,9 +19,7 @@ export default function CurriculumLoader() {
   return (
     <div style={{ padding: '2rem' }}>
       <h2>📚 Universal Curriculum Loader</h2>
-      <pre style={{ background: '#eee', padding: '1rem' }}>
-        {JSON.stringify(data, null, 2)}
-      </pre>
+      <pre style={{ background: '#eee', padding: '1rem' }}>{JSON.stringify(data, null, 2)}</pre>
     </div>
   );
 }

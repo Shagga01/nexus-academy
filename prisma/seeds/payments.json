@@ -1,0 +1,37 @@
+[
+  {
+    "email": "alice@example.com",
+    "amount": 49.99,
+    "currency": "USD",
+    "method": "PayPal",
+    "reference": "PP-20240710-001"
+  },
+  {
+    "email": "bob@domain.com",
+    "amount": 100.00,
+    "currency": "NGN",
+    "method": "Paystack",
+    "reference": "PS-20240710-002"
+  },
+  {
+    "email": "carol@global.net",
+    "amount": 75.50,
+    "currency": "EUR",
+    "method": "Flutterwave",
+    "reference": "FW-20240710-003"
+  },
+  {
+    "email": "dave@startup.org",
+    "amount": 120.75,
+    "currency": "GBP",
+    "method": "Stripe",
+    "reference": "ST-20240710-004"
+  },
+  {
+    "email": "emma@enterprise.com",
+    "amount": 200.00,
+    "currency": "USD",
+    "method": "PayPal",
+    "reference": "PP-20240710-005"
+  }
+]

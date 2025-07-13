@@ -160,3 +160,5 @@ dist/
 terraform.tfvars
 *.exe
 
+
+/generated/prisma

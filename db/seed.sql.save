@@ -1,0 +1,114 @@
+-- =========================================
+-- 🚀 SEED DATA FOR NEXUS ACADEMY ECOSYSTEM
+-- Load with:
+-- psql -U postgres -d your_db -f seed.sql
+-- =========================================
+
+-- =========================================
+-- USERS (students, teachers, parents, admins)
+-- =========================================
+INSERT INTO users (name, role, email, hashed_password) VALUES
+('Alice Student', 'student', 'alice@student.com', 'hashed_pw'),
+('Bob Teacher', 'teacher', 'bob@teacher.com', 'hashed_pw'),
+('Carol Parent', 'parent', 'carol@parent.com', 'hashed_pw'),
+('Dave Admin', 'admin', 'dave@admin.com', 'hashed_pw');
+
+-- =========================================
+-- SUBJECTS
+-- =========================================
+INSERT INTO subjects (name, description, thumbnail_url) VALUES
+('Mathematics', 'Math curriculum for all levels', 'https://img.com/math.png'),
+('Science', 'General science topics', 'https://img.com/science.png'),
+('English', 'Reading, writing, grammar', 'https://img.com/english.png'),
+('History', 'World and local history', 'https://img.com/history.png'),
+('ICT', 'Digital skills and programming', 'https://img.com/ict.png');
+
+-- =========================================
+-- TOPICS & LESSONS
+'Newton\'s Laws', 'Force and acceleration', 'https://vr.com/newton', 'phy_basics'),-- =========================================
+INSERT INTO topics (subject_id, name, description, order_index) VALUES
+(1, 'Algebra', 'Basic algebra concepts', 1),
+(1, 'Geometry', 'Shapes and proofs', 2),
+(2, 'Physics', 'Motion, force, energy', 1),
+(3, 'Literature', 'Poetry and prose', 1),
+(4, 'African History', 'Pre-colonial kingdoms', 1);
+
+INSERT INTO lessons (topic_id, name, lesson_content, vr_experience_link, ai_recommendation_tag) VALUES
+(1, 'Variables & Equations', 'Intro to variables', 'https://vr.com/algebra', 'math_intro'),
+(1, 'Linear Equations', 'Solving ax + b = c', 'https://vr.com/linear', 'math_intro'),
+(2, 'Triangles', 'Types and theorems', 'https://vr.com/triangles', 'geo_start'),
+(3, 'Newton\'s Laws', 'Force and acceleration', 'https://vr.com/newton', 'phy_basics'),
+(4, 'Poetic Devices', 'Metaphors, similes', 'https://vr.com/poetry', 'eng_lit');
+
+-- =========================================
+-- OBJECTIVES
+-- =========================================
+INSERT INTO objectives (lesson_id, description) VALUES
+(1, 'Understand what a variable is'),
+(1, 'Solve simple equations'),
+(2, 'Graph linear equations'),
+(3, 'Identify triangle types'),
+(4, 'State Newton\'s 3 Laws'),
+(5, 'Identify similes in poems');
+
+-- =========================================
+-- ACTIVITIES
+-- =========================================
+INSERT INTO activities (lesson_id, activity_type, resource_link) VALUES
+(1, 'quiz', 'https://quiz.com/variables'),
+(2, 'game', 'https://game.com/linear_eq'),
+(3, 'vr_task', 'https://vr.com/triangle_task'),
+(4, 'experiment', 'https://lab.com/newton_laws'),
+(5, 'reading', 'https://read.com/poems');
+
+-- =========================================
+-- ASSESSMENTS
+-- =========================================
+INSERT INTO assessments (lesson_id, type, data) VALUES
+(1, 'formative', '{"questions":5,"pass_mark":60}'),
+(2, 'summative', '{"questions":10,"pass_mark":70}'),
+(3, 'formative', '{"questions":3,"pass_mark":50}'),
+(4, 'summative', '{"questions":8,"pass_mark":65}'),
+(5, 'formative', '{"questions":4,"pass_mark":55}');
+
+-- =========================================
+-- PROGRESS TRACKING
+-- =========================================
+INSERT INTO progress_tracking (student_id, lesson_id, status, score, time_spent) VALUES
+(1, 1, 'completed', 85, 25),
+(1, 2, 'in_progress', 60, 15),
+(1, 3, 'completed', 90, 30);
+
+-- =========================================
+-- AI LEARNING PATHS
+-- =========================================
+INSERT INTO ai_learning_paths (student_id, recommended_lessons) VALUES
+(1, '[{"lesson_id":4,"priority":1},{"lesson_id":5,"priority":2}]');
+
+-- =========================================
+-- FEES
+-- =========================================
+INSERT INTO fees (student_id, amount, paid_on, status) VALUES
+(1, 50000.00, '2025-05-12', 'paid'),
+(1, 25000.00, NULL, 'due');
+
+-- =========================================
+-- MARKETING LOGS
+-- =========================================
+INSERT INTO marketing_logs (campaign, ctr, cpa, country) VALUES
+('BackToSchool2025', 5.5, 200, 'Nigeria'),
+('VRPromo', 3.2, 150, 'Kenya');
+
+-- =========================================
+-- AUDIT LOGS
+-- =========================================
+INSERT INTO audit_logs (user_action, table_affected, record_id, performed_by) VALUES
+('INSERT', 'students', 1, 'admin'),
+('UPDATE', 'fees', 1, 'admin');
+
+-- =========================================
+-- PSYCHOMOTOR LOGS
+-- =========================================
+INSERT INTO psychomotor_logs (student_id, game, skill_area, score) VALUES
+(1, 'Shape Matcher', 'visual-spatial', 80),
+(1, 'Reflex Tap', 'reaction', 95);
