@@ -20,14 +20,15 @@ enum Role {
 
 // User Model
 model User {
-  id        String    @id @default(uuid())
-  email     String    @unique
-  password  String    // Hashed password
-  firstName String
-  lastName  String
-  role      Role      @default(STUDENT)
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
+  id               String          @id @default(uuid())
+  email            String          @unique
+  password         String          // Hashed password
+  firstName        String
+  lastName         String
+  role             Role            @default(STUDENT)
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt
+  refreshToken     String?         @unique // ADDED THIS LINE FOR REFRESH TOKENS
 
   // Relations
   studentProfile   StudentProfile?
@@ -35,10 +36,12 @@ model User {
   parentProfile    ParentProfile?
   adminProfile     AdminProfile?
   enrollments      Enrollment[]
-  createdCourses   Course[]      @relation("TeacherCourses")
+  createdCourses   Course[]        @relation("TeacherCourses")
   assignments      Assignment[]
   grades           Grade[]
   transactions     Transaction[]
+
+  @@map("users") // Ensures the table name in the DB is 'users'
 }
 
 // Student Profile (extends User)
