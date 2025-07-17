@@ -1,9 +1,11 @@
 // src/graphql/schema.ts
 import { gql } from 'graphql-tag';
 
+
 export const typeDefs = gql`
   scalar DateTime
   scalar Decimal
+
 
   enum Role {
     ADMIN
@@ -11,6 +13,7 @@ export const typeDefs = gql`
     PARENT
     STUDENT
   }
+
 
   type User {
     id: ID!
@@ -31,10 +34,12 @@ export const typeDefs = gql`
     transactions: [Transaction!]!
   }
 
+
   type AuthPayload {
     token: String!
     user: User!
   }
+
 
   type StudentProfile {
     id: ID!
@@ -45,6 +50,7 @@ export const typeDefs = gql`
     phoneNumber: String
   }
 
+
   type TeacherProfile {
     id: ID!
     userId: String!
@@ -53,17 +59,20 @@ export const typeDefs = gql`
     qualifications: String
   }
 
+
   type ParentProfile {
     id: ID!
     userId: String!
     user: User!
   }
 
+
   type AdminProfile {
     id: ID!
     userId: String!
     user: User!
   }
+
 
   type Course {
     id: ID!
@@ -79,6 +88,7 @@ export const typeDefs = gql`
     enrollments: [Enrollment!]!
   }
 
+
   type Module {
     id: ID!
     title: String!
@@ -90,6 +100,7 @@ export const typeDefs = gql`
     course: Course!
     lessons: [Lesson!]!
   }
+
 
   type Lesson {
     id: ID!
@@ -104,6 +115,7 @@ export const typeDefs = gql`
     assignments: [Assignment!]!
   }
 
+
   type Enrollment {
     id: ID!
     studentId: String!
@@ -116,6 +128,7 @@ export const typeDefs = gql`
     createdAt: DateTime!
     updatedAt: DateTime!
   }
+
 
   type Assignment {
     id: ID!
@@ -132,6 +145,7 @@ export const typeDefs = gql`
     grades: [Grade!]!
   }
 
+
   type Grade {
     id: ID!
     assignmentId: String!
@@ -144,6 +158,7 @@ export const typeDefs = gql`
     createdAt: DateTime!
     updatedAt: DateTime!
   }
+
 
   type Transaction {
     id: ID!
@@ -158,39 +173,60 @@ export const typeDefs = gql`
     updatedAt: DateTime!
   }
 
-  # ===========================================
-  # 👑 Secure Owner-only type
-  # ===========================================
+
   type OwnerSecretData {
     masterOverride: Boolean!
     message: String!
+    totalUsers: Int!
+    totalCourses: Int!
   }
+
+
+  type EnableTwoFAResponse {
+    message: String!
+    qrCode: String!
+  }
+
+
+  type VerifyTwoFAResponse {
+    success: Boolean!
+  }
+
 
   type Query {
     users: [User!]!
     user(id: ID!): User
-    # 🔥 Added secure owner query
+    me: User
+    course(id: ID!): Course
+    courses: [Course!]!
     alphaOwnerData(secretKey: String!): OwnerSecretData!
   }
 
+
   type Mutation {
-    signup(
+    register(
       email: String!
       password: String!
       firstName: String!
       lastName: String!
-      role: Role
-    ): AuthPayload!
+    ): String! # ❗️No change; we'll return token from resolver, not here
+
 
     login(email: String!, password: String!): AuthPayload!
+
+
+    enableTwoFA: EnableTwoFAResponse!
+    verifyTwoFA(token: String!): VerifyTwoFAResponse!
+
 
     createCourse(
       title: String!
       description: String
       price: Decimal!
       isPublished: Boolean
-      teacherId: String!
+      teacherId: String
     ): Course!
+
 
     updateCourse(
       id: ID!
@@ -201,6 +237,8 @@ export const typeDefs = gql`
       teacherId: String
     ): Course!
 
+
     deleteCourse(id: ID!): Course!
+    enroll(courseId: ID!): Enrollment!
   }
 `;
