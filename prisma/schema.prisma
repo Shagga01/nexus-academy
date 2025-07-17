@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -10,7 +7,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// User Roles
 enum Role {
   ADMIN
   TEACHER
@@ -18,19 +14,25 @@ enum Role {
   STUDENT
 }
 
-// User Model
+enum CourseStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
 model User {
   id               String          @id @default(uuid())
   email            String          @unique
-  password         String          // Hashed password
+  password         String
   firstName        String
   lastName         String
   role             Role            @default(STUDENT)
   createdAt        DateTime        @default(now())
   updatedAt        DateTime        @updatedAt
-  refreshToken     String?         @unique // ADDED THIS LINE FOR REFRESH TOKENS
+  refreshToken     String?         @unique
+  totpSecret       String?
+  isTwoFAEnabled   Boolean         @default(false)
 
-  // Relations
   studentProfile   StudentProfile?
   teacherProfile   TeacherProfile?
   parentProfile    ParentProfile?
@@ -41,10 +43,9 @@ model User {
   grades           Grade[]
   transactions     Transaction[]
 
-  @@map("users") // Ensures the table name in the DB is 'users'
+  @@map("users")
 }
 
-// Student Profile (extends User)
 model StudentProfile {
   id           String     @id @default(uuid())
   userId       String     @unique
@@ -52,104 +53,93 @@ model StudentProfile {
   dateOfBirth  DateTime?
   address      String?
   phoneNumber  String?
-  // Add other student-specific fields as needed
 }
 
-// Teacher Profile (extends User)
 model TeacherProfile {
-  id           String     @id @default(uuid())
-  userId       String     @unique
-  user         User       @relation(fields: [userId], references: [id], onDelete: Cascade)
-  bio          String?
+  id             String     @id @default(uuid())
+  userId         String     @unique
+  user           User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  bio            String?
   qualifications String?
-  // Add other teacher-specific fields as needed
 }
 
-// Parent Profile (extends User)
 model ParentProfile {
-  id           String     @id @default(uuid())
-  userId       String     @unique
-  user         User       @relation(fields: [userId], references: [id], onDelete: Cascade)
-  // Add other parent-specific fields as needed
+  id       String     @id @default(uuid())
+  userId   String     @unique
+  user     User       @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
-// Admin Profile (extends User)
 model AdminProfile {
-  id           String     @id @default(uuid())
-  userId       String     @unique
-  user         User       @relation(fields: [userId], references: [id], onDelete: Cascade)
-  // Add other admin-specific fields as needed
+  id       String     @id @default(uuid())
+  userId   String     @unique
+  user     User       @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
-// Course Model
 model Course {
-  id          String     @id @default(uuid())
-  title       String     @unique
+  id          String       @id @default(uuid())
+  title       String       @unique
   description String?
-  price       Decimal    @db.Decimal(10, 2) // Price of the course
-  isPublished Boolean    @default(false)
-  createdAt   DateTime   @default(now())
-  updatedAt   DateTime   @updatedAt
+  price       Decimal      @db.Decimal(10, 2)
+  isPublished Boolean      @default(false)
+  status      CourseStatus @default(DRAFT)
+  durationHours Int
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
 
-  // Relations
   teacherId   String
-  teacher     User       @relation("TeacherCourses", fields: [teacherId], references: [id])
+  teacher     User         @relation("TeacherCourses", fields: [teacherId], references: [id])
   modules     Module[]
   enrollments Enrollment[]
 }
 
-// Module Model (part of a Course)
 model Module {
   id          String   @id @default(uuid())
   title       String
   description String?
-  order       Int      // Order within the course
+  order       Int
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
-  // Relations
   courseId    String
   course      Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
   lessons     Lesson[]
 
-  @@unique([courseId, order]) // Ensure unique order within a course
+  @@unique([courseId, order])
 }
 
-// Lesson Model (part of a Module)
 model Lesson {
   id          String   @id @default(uuid())
   title       String
-  content     String   // Markdown or HTML content for the lesson
+  content     String
   videoUrl    String?
-  order       Int      // Order within the module
+  order       Int
+  learningObjectives String?
+  autoQuizJson Json?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
-  // Relations
   moduleId    String
   module      Module   @relation(fields: [moduleId], references: [id], onDelete: Cascade)
   assignments Assignment[]
 
-  @@unique([moduleId, order]) // Ensure unique order within a module
+  @@unique([moduleId, order])
 }
 
-// Enrollment Model (Student enrolling in a Course)
 model Enrollment {
-  id          String   @id @default(uuid())
-  studentId   String
-  student     User     @relation(fields: [studentId], references: [id])
-  courseId    String
-  course      Course   @relation(fields: [courseId], references: [id])
+  id            String   @id @default(uuid())
+  studentId     String
+  student       User     @relation(fields: [studentId], references: [id])
+  courseId      String
+  course        Course   @relation(fields: [courseId], references: [id])
   enrollmentDate DateTime @default(now())
-  completed   Boolean  @default(false)
-  progress    Int      @default(0) // Percentage of course completed
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  completed     Boolean  @default(false)
+  progress      Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 
-  @@unique([studentId, courseId]) // A student can only enroll in a course once
+  @@unique([studentId, courseId])
 }
 
-// Assignment Model
 model Assignment {
   id          String   @id @default(uuid())
   title       String
@@ -159,40 +149,37 @@ model Assignment {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
-  // Relations
   lessonId    String
   lesson      Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
-  assignedToId String // User who assigned it (e.g., Teacher)
+  assignedToId String
   assignedTo  User     @relation(fields: [assignedToId], references: [id])
   grades      Grade[]
 }
 
-// Grade Model
 model Grade {
-  id          String   @id @default(uuid())
+  id           String     @id @default(uuid())
   assignmentId String
-  assignment  Assignment @relation(fields: [assignmentId], references: [id], onDelete: Cascade)
-  studentId   String
-  student     User     @relation(fields: [studentId], references: [id])
-  score       Int
-  feedback    String?
-  submittedAt DateTime @default(now())
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  assignment   Assignment @relation(fields: [assignmentId], references: [id], onDelete: Cascade)
+  studentId    String
+  student      User       @relation(fields: [studentId], references: [id])
+  score        Int
+  feedback     String?
+  submittedAt  DateTime   @default(now())
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
 
-  @@unique([assignmentId, studentId]) // A student gets one grade per assignment
+  @@unique([assignmentId, studentId])
 }
 
-// Transaction Model (for payments)
 model Transaction {
-  id          String    @id @default(uuid())
-  userId      String    // User making the transaction (Student, Parent)
-  user        User      @relation(fields: [userId], references: [id])
-  amount      Decimal   @db.Decimal(10, 2)
-  currency    String
-  status      String    // e.g., "pending", "completed", "failed"
-  paymentMethod String? // e.g., "Stripe", "Paystack", "Card"
-  transactionRef String? @unique // Reference from payment gateway
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  id             String    @id @default(uuid())
+  userId         String
+  user           User      @relation(fields: [userId], references: [id])
+  amount         Decimal   @db.Decimal(10, 2)
+  currency       String
+  status         String
+  paymentMethod  String?
+  transactionRef String?   @unique
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
 }

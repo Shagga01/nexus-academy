@@ -1,3 +1,4 @@
+// src/app.ts
 import express from 'express';
 import { ApolloServer } from 'apollo-server-express';
 import { typeDefs } from './graphql/schema';
@@ -8,35 +9,39 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import 'dotenv/config';
 
+// Initialize Express app
 const app = express();
 
+// Middlewares
 app.use(express.json());
 app.use(cors({
-  origin: 'http://localhost:3000',
-  credentials: true
+  origin: process.env.CLIENT_ORIGIN || 'http://localhost:3000',
+  credentials: true,
 }));
 app.use(helmet());
 app.use(morgan('dev'));
+app.use(authenticateToken); // ✅ Attach decoded JWT to req.user
 
-// ✅ Your custom JWT middleware to set req.user
-app.use(authenticateToken);
+async function startApolloServer() {
+  try {
+    const server = new ApolloServer({
+      typeDefs,
+      resolvers,
+      context: ({ req }) => ({
+        user: req.user,
+      }),
+    });
 
-async function startServer() {
-  const server = new ApolloServer({
-    typeDefs,
-    resolvers,
-    // ✅ Replaces previous "import { context }"
-    context: ({ req }) => {
-      return { user: req.user };
-    },
-  });
+    await server.start();
+    server.applyMiddleware({ app, path: '/graphql' });
 
-  await server.start();
-  server.applyMiddleware({ app });
-
-  app.listen({ port: 4000 }, () => {
-    console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);
-  });
+    const PORT = process.env.PORT || 4000;
+    app.listen(PORT, () => {
+      console.log(`🚀 Server ready at http://localhost:${PORT}${server.graphqlPath}`);
+    });
+  } catch (err) {
+    console.error('🔥 Failed to start Apollo Server:', err);
+  }
 }
 
-startServer();
+startApolloServer();
