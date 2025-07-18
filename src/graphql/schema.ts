@@ -1,5 +1,5 @@
 // src/graphql/schema.ts
-import { gql } from 'graphql-tag';
+import { gql } from 'graphql-tag'
 
 
 export const typeDefs = gql`
@@ -209,7 +209,7 @@ export const typeDefs = gql`
       password: String!
       firstName: String!
       lastName: String!
-    ): String! # ❗️No change; we'll return token from resolver, not here
+    ): AuthPayload!
 
 
     login(email: String!, password: String!): AuthPayload!
@@ -241,4 +241,4 @@ export const typeDefs = gql`
     deleteCourse(id: ID!): Course!
     enroll(courseId: ID!): Enrollment!
   }
-`;
+`

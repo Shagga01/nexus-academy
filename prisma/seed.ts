@@ -77,7 +77,7 @@ async function main() {
         title: course.title,
         description: course.desc,
         price: course.price,
-        durationHours: faker.datatype.number({ min: 20, max: 50 }),
+        durationHours: faker.number.int({ min: 20, max: 50 }),
         isPublished: true,
         status: 'PUBLISHED',
         teacherId: teacher.id,

@@ -1,7 +1,6 @@
 // src/graphql/resolvers.ts
 import { PrismaClient } from '@prisma/client'
-import bcrypt from 'bcryptjs'
-import jwt from 'jsonwebtoken'
+import { AuthService } from '@/services/auth.service'
 
 
 const prisma = new PrismaClient()
@@ -11,8 +10,6 @@ export const resolvers = {
   Query: {
     me: async (_: any, __: any, context: any) => {
       if (!context.user) throw new Error("Not authenticated")
-
-
       return await prisma.user.findUnique({
         where: { id: context.user.id },
       })
@@ -51,38 +48,27 @@ export const resolvers = {
 
 
   Mutation: {
-    register: async (_: any, args: any) => {
-      const hashedPassword = await bcrypt.hash(args.password, 10)
-      await prisma.user.create({
+    register: async (_: any, { email, password, firstName, lastName }) => {
+      const user = await AuthService.register(email, password)
+      const token = await AuthService.login(email, password)
+      // 👇 manually attach the additional info (admin role + name)
+      await prisma.user.update({
+        where: { id: user.id },
         data: {
-          email: args.email,
-          password: hashedPassword,
-          firstName: args.firstName,
-          lastName: args.lastName,
+          firstName,
+          lastName,
           role: 'ADMIN'
         }
       })
-      return "Registration successful"
+      const updatedUser = await prisma.user.findUnique({ where: { id: user.id } })
+      return { token, user: updatedUser }
     },
 
 
-    login: async (_: any, { email, password }: any) => {
-      const user = await prisma.user.findUnique({ where: { email }})
-      if (!user) throw new Error("User not found")
-
-
-      const valid = await bcrypt.compare(password, user.password)
-      if (!valid) throw new Error("Invalid password")
-
-
-      const token = jwt.sign(
-        { id: user.id, email: user.email, role: user.role },
-        process.env.JWT_SECRET!,
-        { expiresIn: '7d' }
-      )
-
-
-      return { token, user } // ✅ now returns AuthPayload
+    login: async (_: any, { email, password }) => {
+      const token = await AuthService.login(email, password)
+      const user = await AuthService.getUserByEmail(email)
+      return { token, user }
     },
 
 

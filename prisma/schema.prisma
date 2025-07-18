@@ -1,10 +1,12 @@
+// schema.prisma
+
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = env("DATABASE_URL") // Example: postgresql://user:pass@localhost:5432/db?schema=public
 }
 
 enum Role {
@@ -21,70 +23,70 @@ enum CourseStatus {
 }
 
 model User {
-  id               String          @id @default(uuid())
-  email            String          @unique
-  password         String
-  firstName        String
-  lastName         String
-  role             Role            @default(STUDENT)
-  createdAt        DateTime        @default(now())
-  updatedAt        DateTime        @updatedAt
-  refreshToken     String?         @unique
-  totpSecret       String?
-  isTwoFAEnabled   Boolean         @default(false)
+  id             String   @id @default(uuid())
+  email          String   @unique
+  password       String // IMPORTANT: Hash this before saving
+  firstName      String
+  lastName       String
+  role           Role     @default(STUDENT)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  refreshToken   String?  @unique
+  totpSecret     String?
+  isTwoFAEnabled Boolean  @default(false)
 
-  studentProfile   StudentProfile?
-  teacherProfile   TeacherProfile?
-  parentProfile    ParentProfile?
-  adminProfile     AdminProfile?
-  enrollments      Enrollment[]
-  createdCourses   Course[]        @relation("TeacherCourses")
-  assignments      Assignment[]
-  grades           Grade[]
-  transactions     Transaction[]
+  studentProfile StudentProfile?
+  teacherProfile TeacherProfile?
+  parentProfile  ParentProfile?
+  adminProfile   AdminProfile?
+  enrollments    Enrollment[]
+  createdCourses Course[]        @relation("TeacherCourses")
+  assignments    Assignment[]
+  grades         Grade[]
+  transactions   Transaction[]
 
   @@map("users")
 }
 
 model StudentProfile {
-  id           String     @id @default(uuid())
-  userId       String     @unique
-  user         User       @relation(fields: [userId], references: [id], onDelete: Cascade)
-  dateOfBirth  DateTime?
-  address      String?
-  phoneNumber  String?
+  id          String    @id @default(uuid())
+  userId      String    @unique
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  dateOfBirth DateTime?
+  address     String?
+  phoneNumber String?
 }
 
 model TeacherProfile {
-  id             String     @id @default(uuid())
-  userId         String     @unique
-  user           User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id             String  @id @default(uuid())
+  userId         String  @unique
+  user           User    @relation(fields: [userId], references: [id], onDelete: Cascade)
   bio            String?
   qualifications String?
 }
 
 model ParentProfile {
-  id       String     @id @default(uuid())
-  userId   String     @unique
-  user     User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id     String @id @default(uuid())
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model AdminProfile {
-  id       String     @id @default(uuid())
-  userId   String     @unique
-  user     User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id     String @id @default(uuid())
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Course {
-  id          String       @id @default(uuid())
-  title       String       @unique
-  description String?
-  price       Decimal      @db.Decimal(10, 2)
-  isPublished Boolean      @default(false)
-  status      CourseStatus @default(DRAFT)
+  id            String       @id @default(uuid())
+  title         String       @unique
+  description   String?
+  price         Decimal      @db.Decimal(10, 2)
+  isPublished   Boolean      @default(false)
+  status        CourseStatus @default(DRAFT)
   durationHours Int
-  createdAt   DateTime     @default(now())
-  updatedAt   DateTime     @updatedAt
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
 
   teacherId   String
   teacher     User         @relation("TeacherCourses", fields: [teacherId], references: [id])
@@ -100,60 +102,60 @@ model Module {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
-  courseId    String
-  course      Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
-  lessons     Lesson[]
+  courseId String
+  course   Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  lessons  Lesson[]
 
   @@unique([courseId, order])
 }
 
 model Lesson {
-  id          String   @id @default(uuid())
-  title       String
-  content     String
-  videoUrl    String?
-  order       Int
+  id                 String   @id @default(uuid())
+  title              String
+  content            String
+  videoUrl           String?
+  order              Int
   learningObjectives String?
-  autoQuizJson Json?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  autoQuizJson       Json?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
 
   moduleId    String
-  module      Module   @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  module      Module       @relation(fields: [moduleId], references: [id], onDelete: Cascade)
   assignments Assignment[]
 
   @@unique([moduleId, order])
 }
 
 model Enrollment {
-  id            String   @id @default(uuid())
-  studentId     String
-  student       User     @relation(fields: [studentId], references: [id])
-  courseId      String
-  course        Course   @relation(fields: [courseId], references: [id])
+  id             String   @id @default(uuid())
+  studentId      String
+  student        User     @relation(fields: [studentId], references: [id])
+  courseId       String
+  course         Course   @relation(fields: [courseId], references: [id])
   enrollmentDate DateTime @default(now())
-  completed     Boolean  @default(false)
-  progress      Int      @default(0)
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  completed      Boolean  @default(false)
+  progress       Int      @default(0)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 
   @@unique([studentId, courseId])
 }
 
 model Assignment {
-  id          String   @id @default(uuid())
+  id          String    @id @default(uuid())
   title       String
   description String?
   dueDate     DateTime?
   maxScore    Int
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 
-  lessonId    String
-  lesson      Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  lessonId     String
+  lesson       Lesson  @relation(fields: [lessonId], references: [id], onDelete: Cascade)
   assignedToId String
-  assignedTo  User     @relation(fields: [assignedToId], references: [id])
-  grades      Grade[]
+  assignedTo   User    @relation(fields: [assignedToId], references: [id])
+  grades       Grade[]
 }
 
 model Grade {
@@ -172,14 +174,14 @@ model Grade {
 }
 
 model Transaction {
-  id             String    @id @default(uuid())
+  id             String   @id @default(uuid())
   userId         String
-  user           User      @relation(fields: [userId], references: [id])
-  amount         Decimal   @db.Decimal(10, 2)
+  user           User     @relation(fields: [userId], references: [id])
+  amount         Decimal  @db.Decimal(10, 2)
   currency       String
   status         String
   paymentMethod  String?
-  transactionRef String?   @unique
-  createdAt      DateTime  @default(now())
-  updatedAt      DateTime  @updatedAt
+  transactionRef String?  @unique
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 }

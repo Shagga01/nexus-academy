@@ -13,14 +13,15 @@
     "incremental": true,
     "noEmit": true,
     "typeRoots": ["./node_modules/@types", "./src/types"],
-    "baseUrl": ".",
+    "baseUrl": "src",
     "paths": {
-      "@/": ["src/"]
-    }
+      "@/*": ["*"]
+    },
+    "isolatedModules": true
   },
   "include": [
-    "src//*.{ts,tsx}",
-    "prisma//*.ts",
+    "src/**/*.ts",
+    "prisma/**/*.ts",
     "next-env.d.ts"
   ],
   "exclude": ["node_modules", "dist"]
